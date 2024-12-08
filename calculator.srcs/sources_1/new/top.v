@@ -197,6 +197,24 @@ module top(
         .aDot(aDot_sci),
         .return_to_main(return_to_main_sci)
     );
+
+     UnitConverter unit_conv (
+        .enConvert(enUnit && !return_signal_delay),
+        .clk(clk),
+        .rr(rr),
+        .btnL(btnL_unit),
+        .btnR(btnR_unit),
+        .btnC(btnC_unit),
+        .btnU(btnU_unit),
+        .btnD(btnD_unit),
+        .seg(seg_unit),
+        .an(an_unit),
+        .bDot(bDot),
+        .aDot(aDot),
+        .return_to_main(return_to_main_unit),
+        .dp(dp_unit),
+        .led(led)
+    );
     
     // Output multiplexing
     assign seg = (enCalc && !return_signal_delay) ? seg_calc :
